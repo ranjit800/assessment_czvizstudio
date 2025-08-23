@@ -837,12 +837,12 @@
 "use client";
 
 import React, { useRef } from "react";
-import Image from "next/image";
+// Yahan se 'Image' import hata diya hai kyunki ab woh 'Icon.tsx' mein hai
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import PlatformSection from "./PlatformSection";
 import Icon from "./Icon"; 
-import ShinyButton from "../ShinyButton"; // Naya button component import kiya
+import ShinyButton from "../ShinyButton";
 
 // icons import
 import checkoutIcon from "../../public/asset/Images/icons/checkout.png";

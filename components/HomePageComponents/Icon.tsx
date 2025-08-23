@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image"; // StaticImageData import kiya
 import { motion, useTransform, MotionValue } from "framer-motion";
 
-// Icon component ke liye props
+// Icon component ke liye props ka type define kiya
 type IconProps = {
   scrollYProgress: MotionValue<number>;
   iconData: {
-    src: any;
+    src: StaticImageData; // 'any' ki jagah ab 'StaticImageData' use kiya
     className: string;
     x: number;
     y: number;
@@ -17,7 +17,6 @@ type IconProps = {
 };
 
 const Icon: React.FC<IconProps> = ({ scrollYProgress, iconData }) => {
-  // Ab hooks ko loop ke andar nahi, balki component ke top level par call kiya ja raha hai
   const opacity = useTransform(scrollYProgress, iconData.range, [1, 0]);
   const scale = useTransform(scrollYProgress, iconData.range, [1, 0.2]);
   const x = useTransform(scrollYProgress, iconData.range, ["0vw", `${iconData.x * 40}vw`]);
