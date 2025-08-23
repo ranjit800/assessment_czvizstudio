@@ -55,7 +55,7 @@ const PlatformSection: React.FC<PlatformSectionProps> = ({
           {/* video has its own separate animation. */}
           <motion.div 
             style={{ opacity: videoOpacity, x: videoX }}
-            className="relative w-full rounded-l-full overflow-hidden h-64 sm:h-80"
+            className="relative w-full rounded-l-full overflow-hidden h-auto sm:h-80"
           >
             <video
               src="/asset/Videos/Video.webm"
@@ -70,7 +70,7 @@ const PlatformSection: React.FC<PlatformSectionProps> = ({
 
        
 
-        <div className="flex flex-row justify-around items-start mt-16 md:mt-24 w-full">
+        <div className="flex flex-row justify-around items-start mt-5 md:mt-24 w-full">
           <motion.div style={{ opacity: globalOpacity }} className="text-center p-2">
             <h3 className="text-xs md:text-5xl mb-1 font-bold">Global</h3>
             <p className="text-orange-400 text-sm">For creators worldwide.</p>
