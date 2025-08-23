@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-full mx-auto flex h-16 justify-between items-center sm:h-20 ">
         {/* Split into two main sections */}
         <div className="flex items-center gap-10 flex-1">
-          {/* ===== Left (Logo + BETA) ===== */}
+          {/* ===== Left Logo and BETA text == */}
           {!mobileSearchOpen && (
             <div className="flex items-center gap-0.5">
               <Image src={logImg} alt="3dimli logo" width={120} height={40} className="h-9 w-auto" />
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
             </div>
           )}
 
-          {/* ===== Desktop Nav Links ===== */}
+          {/* === Desktop Nav Links ===== */}
           <div className="hidden lg:flex items-center gap-2 border-l border-neutral-300 dark:border-neutral-700 pl-4">
             {navLinks.map((link) => (
               <a
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-5 flex-shrink-0">
-          {/* ===== Desktop Search Bar ===== */}
+          {/* ==== Desktop Search Bar ==== */}
           <div className="hidden lg:flex items-center bg-neutral-100 dark:bg-[#111111d9] border border-neutral-300 dark:border-neutral-700 rounded-2xl w-[30rem] px-2 py-2 relative">
             <input
               type="search"
@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
             <Search size={26} className="text-gray-400 mr-2" />
           </div>
 
-          {/* ===== Desktop Right Buttons ===== */}
+          {/* ===== Desktop Right Buttons ==== */}
           <div className="hidden lg:flex items-center gap-3">
             {rightButtons.map((btn) => (
               <button key={btn.label} className={`${btn.className} relative group overflow-hidden`}>
