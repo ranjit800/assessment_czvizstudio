@@ -834,10 +834,129 @@
 // export default HeroSection;
 
 
+// "use client";
+
+// import React, { useRef } from "react";
+// // Yahan se 'Image' import hata diya hai kyunki ab woh 'Icon.tsx' mein hai
+// import { motion, useScroll, useTransform } from "framer-motion";
+// import { TypeAnimation } from "react-type-animation";
+// import PlatformSection from "./PlatformSection";
+// import Icon from "./Icon"; 
+// import ShinyButton from "../ShinyButton";
+
+// // icons import
+// import checkoutIcon from "../../public/asset/Images/icons/checkout.png";
+// import searchIcon from "../../public/asset/Images/icons/search.png";
+// import uploadIcon from "../../public/asset/Images/icons/upload.png";
+// import categoryIcon from "../../public/asset/Images/icons/category.png";
+// import supportIcon from "../../public/asset/Images/icons/support.png";
+// import starIcon from "../../public/asset/Images/icons/star.png";
+// import favoritesIcon from "../../public/asset/Images/icons/favorites.png";
+// import downloadIcon from "../../public/asset/Images/icons/downlode.png";
+// import communityIcon from "../../public/asset/Images/icons/community.png";
+// import priceTagIcon from "../../public/asset/Images/icons/priceTag.png";
+// import threeDIcon from "../../public/asset/Images/icons/3d.png";
+
+// const icons = [
+//   { src: threeDIcon, className: "top-14 left-[15%]", x: 0.8, y: 1.1, range: [0, 0.2] },
+//   { src: checkoutIcon, className: "top-[15%] right-[15%]", x: -0.8, y: 1.1, range: [0, 0.2] },
+//   { src: priceTagIcon, className: "top-[25%] left-[24%]", x: 0.6, y: 0.8, range: [0.05, 0.25] },
+//   { src: communityIcon, className: "top-[36%] left-[13%]", x: 0.8, y: 0.6, range: [0.1, 0.3] },
+//   { src: searchIcon, className: "top-[35%] right-[22%]", x: -0.6, y: 0.7, range: [0.1, 0.3] },
+//   { src: uploadIcon, className: "top-[50%] right-[10%]", x: -0.9, y: 0.4, range: [0.15, 0.35] },
+//   { src: downloadIcon, className: "top-[52%] left-[26%]", x: 0.5, y: 0.4, range: [0.15, 0.35] },
+//   { src: favoritesIcon, className: "bottom-[25%] left-[14%]", x: 0.8, y: -0.1, range: [0.2, 0.4] },
+//   { src: categoryIcon, className: "bottom-[22%] right-[24%]", x: -0.5, y: -0.2, range: [0.2, 0.4] },
+//   { src: starIcon, className: "bottom-[12%] left-[30%]", x: 0.4, y: -0.4, range: [0.25, 0.45] },
+//   { src: supportIcon, className: "bottom-[12%] left-[45%]", x: 0.1, y: -0.5, range: [0.25, 0.45] },
+// ];
+
+// const HeroSection: React.FC = () => {
+//   const targetRef = useRef<HTMLDivElement>(null);
+//   const { scrollYProgress } = useScroll({
+//     target: targetRef,
+//     offset: ["start start", "end end"],
+//   });
+
+//   const headingOpacity = useTransform(scrollYProgress, [0.35, 0.5], [1, 0]);
+//   const headingY = useTransform(scrollYProgress, [0.35, 0.5], ["0%", "-50%"]);
+
+//   const subheadingOpacity = useTransform(scrollYProgress, [0.4, 0.55], [1, 0]);
+//   const subheadingY = useTransform(scrollYProgress, [0.4, 0.55], ["0%", "-50%"]);
+
+//   const buttonOpacity = useTransform(scrollYProgress, [0.45, 0.6], [1, 0]);
+//   const buttonY = useTransform(scrollYProgress, [0.45, 0.6], ["0%", "-50%"]);
+
+//   const newComponentOpacity = useTransform(scrollYProgress, [0.65, 0.8], [0, 1]);
+//   const newComponentY = useTransform(scrollYProgress, [0.65, 0.8], ["50%", "0%"]);
+
+//   return (
+//     <div ref={targetRef} className="relative h-[350vh] w-full bg-black">
+//       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden text-white">
+//         {/* background blobs */}
+//         <div className="absolute left-[10%] h-[300px] w-[300px] bg-red-500/50 rounded-full blur-[150px] z-0"></div>
+//         <div className="absolute right-[50%] top-1/2 h-[300px] w-[300px] bg-cyan-300/30 rounded-full blur-[100px] z-0"></div>
+
+//         {/* center content */}
+//         <div className="relative z-20 text-center flex flex-col items-center">
+//           <motion.h1 
+//             style={{ opacity: headingOpacity, y: headingY }}
+//             className="text-4xl md:text-6xl font-bold mb-4 h-[160px] md:h-[192px]"
+//           >
+//             <TypeAnimation
+//               sequence={[
+//                 'Discover, Buy, and Sell\nDigital Products',
+//                 2000,
+//                 'Explore a Universe of\nCreative Assets',
+//                 2000,
+//                 'Unleash Your Imagination\nwith 3D Models',
+//                 2000,
+//                 'Join a Community of\nDigital Creators',
+//                 2000,
+//               ]}
+//               wrapper="span"
+//               speed={50}
+//               repeat={Infinity}
+//               cursor={true}
+//               style={{ whiteSpace: 'pre-line', display: 'inline-block' }}
+//             />
+//           </motion.h1>
+//           <motion.p 
+//             style={{ opacity: subheadingOpacity, y: subheadingY }}
+//             className="text-neutral-400 mb-9"
+//           >
+//             Your one-stop digital platform for 3D models and digital creations. <br />
+//             Join our community of creators and collectors today.
+//           </motion.p>
+          
+//           <ShinyButton 
+//             title="Explore all products" 
+//             motionProps={{ style: { opacity: buttonOpacity, y: buttonY } }} 
+//           />
+//         </div>
+
+//         {/* scattered icons */}
+//         {icons.map((icon, i) => (
+//           <Icon key={i} scrollYProgress={scrollYProgress} iconData={icon} />
+//         ))}
+
+//         {/* Naya component jo fade in hoga */}
+//         <motion.div
+//           style={{ opacity: newComponentOpacity, y: newComponentY }}
+//           className="absolute inset-0 z-30"
+//         >
+//           <PlatformSection />
+//         </motion.div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HeroSection;
+
 "use client";
 
 import React, { useRef } from "react";
-// Yahan se 'Image' import hata diya hai kyunki ab woh 'Icon.tsx' mein hai
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import PlatformSection from "./PlatformSection";
@@ -856,20 +975,31 @@ import downloadIcon from "../../public/asset/Images/icons/downlode.png";
 import communityIcon from "../../public/asset/Images/icons/community.png";
 import priceTagIcon from "../../public/asset/Images/icons/priceTag.png";
 import threeDIcon from "../../public/asset/Images/icons/3d.png";
+import collectibles from "../../public/asset/Images/icons/collectibles.png";
+
 
 const icons = [
-  { src: threeDIcon, className: "top-14 left-[15%]", x: 0.8, y: 1.1, range: [0, 0.2] },
-  { src: checkoutIcon, className: "top-[15%] right-[15%]", x: -0.8, y: 1.1, range: [0, 0.2] },
-  { src: priceTagIcon, className: "top-[25%] left-[24%]", x: 0.6, y: 0.8, range: [0.05, 0.25] },
-  { src: communityIcon, className: "top-[36%] left-[13%]", x: 0.8, y: 0.6, range: [0.1, 0.3] },
-  { src: searchIcon, className: "top-[35%] right-[22%]", x: -0.6, y: 0.7, range: [0.1, 0.3] },
-  { src: uploadIcon, className: "top-[50%] right-[10%]", x: -0.9, y: 0.4, range: [0.15, 0.35] },
-  { src: downloadIcon, className: "top-[52%] left-[26%]", x: 0.5, y: 0.4, range: [0.15, 0.35] },
-  { src: favoritesIcon, className: "bottom-[25%] left-[14%]", x: 0.8, y: -0.1, range: [0.2, 0.4] },
-  { src: categoryIcon, className: "bottom-[22%] right-[24%]", x: -0.5, y: -0.2, range: [0.2, 0.4] },
-  { src: starIcon, className: "bottom-[12%] left-[30%]", x: 0.4, y: -0.4, range: [0.25, 0.45] },
-  { src: supportIcon, className: "bottom-[12%] left-[45%]", x: 0.1, y: -0.5, range: [0.25, 0.45] },
+  { src: threeDIcon, className: "top-[15%] left-[9%]", x: 0.8, y: 1.1, range: [0, 0.1] },
+  { src: checkoutIcon, className: "top-[18%] right-[10%]", x: -0.8, y: 1.1, range: [0, 0.1] },
+  { src: priceTagIcon, className: "top-[30%] left-[20%]", x: 0.6, y: 0.8, range: [0.02, 0.12] },
+  { src: communityIcon, className: "top-[44%] left-[8%]", x: 0.8, y: 0.6, range: [0.04, 0.14] },
+  { src: searchIcon, className: "top-[39%] right-[17%]", x: -0.6, y: 0.7, range: [0.04, 0.14] },
+  { src: uploadIcon, className: "top-[55%] right-[7%]", x: -0.9, y: 0.4, range: [0.06, 0.16] },
+  { src: downloadIcon, className: "top-[59%] left-[20%]", x: 0.5, y: 0.4, range: [0.06, 0.16] },
+  { src: favoritesIcon, className: "bottom-[10%] left-[12%]", x: 0.8, y: -0.1, range: [0.08, 0.18] },
+  { src: categoryIcon, className: "bottom-[15%] right-[20%]", x: -0.5, y: -0.2, range: [0.08, 0.18] },
+  { src: starIcon, className: "-bottom-[2%] left-[25%]", x: 0.4, y: -0.4, range: [0.1, 0.2] },
+  { src: supportIcon, className: "-bottom-[1%] left-[45%]", x: 0.1, y: -0.5, range: [0.1, 0.2] },
+  { src: collectibles, className: "-bottom-[10%] right-[35%]", x: -0.3, y: -0.7, range: [0.1, 0.2] },
 ];
+
+const mobileIcons = [
+    { src: threeDIcon, className: "top-[25%] left-[5%]", x: 0.5, y: 1.1, range: [0, 0.1] },
+    { src: checkoutIcon, className: "top-[28%] right-[5%]", x: -0.5, y: 1.1, range: [0, 0.1] },
+    { src: priceTagIcon, className: "bottom-[30%] left-[8%]", x: 0.6, y: -0.1, range: [0.02, 0.12] },
+    { src: communityIcon, className: "bottom-[25%] right-[40%]", x: -0.1, y: -0.1, range: [0.04, 0.14] },
+    { src: searchIcon, className: "top-[60%] right-[5%]", x: -0.6, y:0.1, range: [0.04, 0.14] },
+]
 
 const HeroSection: React.FC = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -878,55 +1008,61 @@ const HeroSection: React.FC = () => {
     offset: ["start start", "end end"],
   });
 
-  const headingOpacity = useTransform(scrollYProgress, [0.35, 0.5], [1, 0]);
-  const headingY = useTransform(scrollYProgress, [0.35, 0.5], ["0%", "-50%"]);
+  // --- YEH FINAL FIX HAI ---
+  // Animation ki timing aisi set ki hai ki content 0.2 scroll tak bilkul nahi hilega
+  const headingOpacity = useTransform(scrollYProgress, [0.2, 0.3], [1, 0]);
+  const headingY = useTransform(scrollYProgress, [0, 0.2, 0.3], ["0%", "0%", "-50%"]);
 
-  const subheadingOpacity = useTransform(scrollYProgress, [0.4, 0.55], [1, 0]);
-  const subheadingY = useTransform(scrollYProgress, [0.4, 0.55], ["0%", "-50%"]);
+  const subheadingOpacity = useTransform(scrollYProgress, [0.22, 0.32], [1, 0]);
+  const subheadingY = useTransform(scrollYProgress, [0, 0.22, 0.32], ["0%", "0%", "-50%"]);
 
-  const buttonOpacity = useTransform(scrollYProgress, [0.45, 0.6], [1, 0]);
-  const buttonY = useTransform(scrollYProgress, [0.45, 0.6], ["0%", "-50%"]);
+  const buttonOpacity = useTransform(scrollYProgress, [0.24, 0.34], [1, 0]);
+  const buttonY = useTransform(scrollYProgress, [0, 0.24, 0.34], ["0%", "0%", "-50%"]);
 
-  const newComponentOpacity = useTransform(scrollYProgress, [0.65, 0.8], [0, 1]);
-  const newComponentY = useTransform(scrollYProgress, [0.65, 0.8], ["50%", "0%"]);
+  const newComponentOpacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
+  const newComponentY = useTransform(scrollYProgress, [0.35, 0.45], ["50px", "0px"]);
+  
+  const textOpacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
+  const textY = useTransform(scrollYProgress, [0.4, 0.5], ["20px", "0px"]);
+  const videoOpacity = useTransform(scrollYProgress, [0.45, 0.55], [0, 1]);
+  const videoX = useTransform(scrollYProgress, [0.45, 0.55], ["50px", "0px"]);
+  const globalOpacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
+  const earningsOpacity = useTransform(scrollYProgress, [0.55, 0.65], [0, 1]);
+  const supportOpacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1]);
 
   return (
-    <div ref={targetRef} className="relative h-[350vh] w-full bg-black">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden text-white">
-        {/* background blobs */}
-        <div className="absolute left-[10%] h-[300px] w-[300px] bg-red-500/50 rounded-full blur-[150px] z-0"></div>
-        <div className="absolute right-[50%] top-1/2 h-[300px] w-[300px] bg-cyan-300/30 rounded-full blur-[100px] z-0"></div>
+    <div ref={targetRef} className="relative h-[350vh] w-full">
+      {/* --- YEH FINAL FIX HAI --- */}
+      {/* Background blobs ko sticky container se bahar nikal kar fixed kar diya hai */}
+      <div className="fixed top-0 left-0 h-screen w-full -z-10">
+        <div className="absolute md:top-[35%] top-[30%] md:left-[10%] left-[10%] h-[270px] w-[270px] bg-red-500/40 rounded-full blur-[150px]"></div>
+        <div className="absolute md:top-2/3  top-[60%]  md:right-[50%] right-0  h-[260px] w-[260px] bg-teal-300/30 rounded-full blur-[100px]"></div>
+      </div>
 
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden text-white">
         {/* center content */}
-        <div className="relative z-20 text-center flex flex-col items-center">
+        <div className="relative z-20 text-center flex flex-col items-center px-4">
           <motion.h1 
             style={{ opacity: headingOpacity, y: headingY }}
-            className="text-4xl md:text-6xl font-bold mb-4 h-[160px] md:h-[192px]"
+            className="text-3xl sm:text-5xl md:text-5xl font-semibold h-[150px] sm:h-[192px] flex justify-center items-center"
           >
             <TypeAnimation
               sequence={[
-                'Discover, Buy, and Sell\nDigital Products',
-                2000,
-                'Explore a Universe of\nCreative Assets',
-                2000,
-                'Unleash Your Imagination\nwith 3D Models',
-                2000,
-                'Join a Community of\nDigital Creators',
-                2000,
+                'Discover, Buy, and Sell\nDigital Products', 8000,
+                'Sell for Free\nPay Only When You Earn', 8000,
+                'Instant Payouts,\nFull Control, No Limits', 8000,
+                'Buy Once, Download\nAnytime, Keep Forever', 8000,
               ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-              cursor={true}
+              wrapper="span" speed={50} repeat={Infinity} cursor={true}
               style={{ whiteSpace: 'pre-line', display: 'inline-block' }}
             />
           </motion.h1>
           <motion.p 
             style={{ opacity: subheadingOpacity, y: subheadingY }}
-            className="text-neutral-400 mb-9"
+            className="text-neutral-400 mb-9 max-w-lg text-xs md:text-sm font-semibold"
           >
-            Your one-stop digital platform for 3D models and digital creations. <br />
-            Join our community of creators and collectors today.
+           Your one-stop digital platform for 3D models and digital creations.
+           Join our community of creators and collectors today.
           </motion.p>
           
           <ShinyButton 
@@ -935,17 +1071,33 @@ const HeroSection: React.FC = () => {
           />
         </div>
 
-        {/* scattered icons */}
-        {icons.map((icon, i) => (
-          <Icon key={i} scrollYProgress={scrollYProgress} iconData={icon} />
-        ))}
+        {/* Desktop Icons */}
+        <div className="hidden md:block">
+            {icons.map((icon, i) => (
+              <Icon key={`desktop-${i}`} scrollYProgress={scrollYProgress} iconData={icon} />
+            ))}
+        </div>
+        {/* Mobile Icons */}
+        <div className="block md:hidden">
+            {mobileIcons.map((icon, i) => (
+              <Icon key={`mobile-${i}`} scrollYProgress={scrollYProgress} iconData={icon} size="small" />
+            ))}
+        </div>
 
         {/* Naya component jo fade in hoga */}
         <motion.div
           style={{ opacity: newComponentOpacity, y: newComponentY }}
           className="absolute inset-0 z-30"
         >
-          <PlatformSection />
+          <PlatformSection 
+            textOpacity={textOpacity}
+            textY={textY}
+            videoOpacity={videoOpacity}
+            videoX={videoX}
+            globalOpacity={globalOpacity}
+            earningsOpacity={earningsOpacity}
+            supportOpacity={supportOpacity}
+          />
         </motion.div>
       </div>
     </div>

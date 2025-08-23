@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import Image from "next/image";
 import {
   FaFacebookF,
   FaInstagram,
@@ -21,10 +23,13 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="self-start"
             >
-              <img
+              <Image
                 src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=12345&theme=light"
                 alt="Product Hunt"
-                className="h-10 sm:h-12"
+                width={250}
+                height={48}
+                className="h-10 sm:h-12 w-auto"
+                unoptimized
               />
             </a>
 

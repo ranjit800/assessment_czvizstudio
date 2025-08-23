@@ -5,7 +5,7 @@ import Footer from '@/components/WraperComponents/Footer'
 
 const Page: React.FC = () => {
   return ( 
-    <div className='w-full pt-16 sm:pt-20'>
+    <div className='w-full '>
       <Navbar/>
       <HeroSection/>
       <Footer/>
