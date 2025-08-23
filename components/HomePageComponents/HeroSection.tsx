@@ -579,6 +579,261 @@
 
 
 
+// "use client";
+
+// import React, { useRef } from "react";
+// import Image from "next/image";
+// import { motion, useScroll, useTransform } from "framer-motion";
+// import { TypeAnimation } from "react-type-animation";
+// import PlatformSection from "./PlatformSection";
+
+// // icons import
+// import checkoutIcon from "../../public/asset/Images/icons/checkout.png";
+// import searchIcon from "../../public/asset/Images/icons/search.png";
+// import uploadIcon from "../../public/asset/Images/icons/upload.png";
+// import categoryIcon from "../../public/asset/Images/icons/category.png";
+// import supportIcon from "../../public/asset/Images/icons/support.png";
+// import starIcon from "../../public/asset/Images/icons/star.png";
+// import favoritesIcon from "../../public/asset/Images/icons/favorites.png";
+// import downloadIcon from "../../public/asset/Images/icons/downlode.png";
+// import communityIcon from "../../public/asset/Images/icons/community.png";
+// import priceTagIcon from "../../public/asset/Images/icons/priceTag.png";
+// import threeDIcon from "../../public/asset/Images/icons/3d.png";
+
+// const icons = [
+//   { src: threeDIcon, className: "top-14 left-[15%]", x: 0.8, y: 1.1, range: [0, 0.2] },
+//   { src: checkoutIcon, className: "top-[15%] right-[15%]", x: -0.8, y: 1.1, range: [0, 0.2] },
+//   { src: priceTagIcon, className: "top-[25%] left-[24%]", x: 0.6, y: 0.8, range: [0.05, 0.25] },
+//   { src: communityIcon, className: "top-[36%] left-[13%]", x: 0.8, y: 0.6, range: [0.1, 0.3] },
+//   { src: searchIcon, className: "top-[35%] right-[22%]", x: -0.6, y: 0.7, range: [0.1, 0.3] },
+//   { src: uploadIcon, className: "top-[50%] right-[10%]", x: -0.9, y: 0.4, range: [0.15, 0.35] },
+//   { src: downloadIcon, className: "top-[52%] left-[26%]", x: 0.5, y: 0.4, range: [0.15, 0.35] },
+//   { src: favoritesIcon, className: "bottom-[25%] left-[14%]", x: 0.8, y: -0.1, range: [0.2, 0.4] },
+//   { src: categoryIcon, className: "bottom-[22%] right-[24%]", x: -0.5, y: -0.2, range: [0.2, 0.4] },
+//   { src: starIcon, className: "bottom-[12%] left-[30%]", x: 0.4, y: -0.4, range: [0.25, 0.45] },
+//   { src: supportIcon, className: "bottom-[12%] left-[45%]", x: 0.1, y: -0.5, range: [0.25, 0.45] },
+// ];
+
+// const HeroSection: React.FC = () => {
+//   const targetRef = useRef<HTMLDivElement>(null);
+//   const { scrollYProgress } = useScroll({
+//     target: targetRef,
+//     offset: ["start start", "end end"],
+//   });
+
+//   const headingOpacity = useTransform(scrollYProgress, [0.35, 0.5], [1, 0]);
+//   const headingY = useTransform(scrollYProgress, [0.35, 0.5], ["0%", "-50%"]);
+
+//   const subheadingOpacity = useTransform(scrollYProgress, [0.4, 0.55], [1, 0]);
+//   const subheadingY = useTransform(scrollYProgress, [0.4, 0.55], ["0%", "-50%"]);
+
+//   const buttonOpacity = useTransform(scrollYProgress, [0.45, 0.6], [1, 0]);
+//   const buttonY = useTransform(scrollYProgress, [0.45, 0.6], ["0%", "-50%"]);
+
+//   const newComponentOpacity = useTransform(scrollYProgress, [0.65, 0.8], [0, 1]);
+//   const newComponentY = useTransform(scrollYProgress, [0.65, 0.8], ["50%", "0%"]);
+
+//   return (
+//     <div ref={targetRef} className="relative h-[350vh] w-full bg-black">
+//       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden text-white">
+//         {/* background blobs */}
+//         <div className="absolute left-[10%] h-[300px] w-[300px] bg-red-500/50 rounded-full blur-[150px] z-0"></div>
+//         <div className="absolute right-[50%] top-1/2 h-[300px] w-[300px] bg-cyan-300/30 rounded-full blur-[100px] z-0"></div>
+
+//         {/* center content */}
+//         <div className="relative z-20 text-center flex flex-col items-center">
+//           <motion.h1 
+//             style={{ opacity: headingOpacity, y: headingY }}
+//             className="text-4xl md:text-6xl font-bold mb-4 h-[160px] md:h-[192px]"
+//           >
+//             <TypeAnimation
+//               sequence={[
+//                 'Discover, Buy, and Sell\nDigital Products',
+//                 2000,
+//                 'Explore a Universe of\nCreative Assets',
+//                 2000,
+//                 'Unleash Your Imagination\nwith 3D Models',
+//                 2000,
+//                 'Join a Community of\nDigital Creators',
+//                 2000,
+//               ]}
+//               wrapper="span"
+//               speed={50}
+//               repeat={Infinity}
+//               cursor={true}
+//               style={{ whiteSpace: 'pre-line', display: 'inline-block' }}
+//             />
+//           </motion.h1>
+//           <motion.p 
+//             style={{ opacity: subheadingOpacity, y: subheadingY }}
+//             className="text-neutral-400 mb-9"
+//           >
+//             Your one-stop digital platform for 3D models and digital creations. <br />
+//             Join our community of creators and collectors today.
+//           </motion.p>
+//           {/* --- BUTTON UPDATED HERE --- */}
+//           <motion.button 
+//             style={{ opacity: buttonOpacity, y: buttonY }}
+//             className="relative z-20 inline-flex items-center justify-center rounded-full font-medium transition-colors whitespace-nowrap overflow-hidden border border-neutral-700 text-neutral-300 hover:bg-neutral-800 w-[156px] sm:w-[15rem] py-[0.514rem] px-[0.9375rem] sm:py-3.5 sm:px-6 shiny-btn"
+//           >
+//             Explore all products
+//           </motion.button>
+//         </div>
+
+//         {/* scattered icons */}
+//         {icons.map((icon, i) => {
+//             const opacity = useTransform(scrollYProgress, icon.range, [1, 0]);
+//             const scale = useTransform(scrollYProgress, icon.range, [1, 0.2]);
+//             const x = useTransform(scrollYProgress, icon.range, ["0vw", `${icon.x * 40}vw`]);
+//             const y = useTransform(scrollYProgress, icon.range, ["0vh", `${icon.y * 40}vh`]);
+
+//             return (
+//                 <motion.div
+//                     key={i}
+//                     style={{ opacity, scale, x, y }}
+//                     className={`absolute z-10 flex items-center justify-center rounded-full backdrop-blur-lg bg-white/10 shadow-[0px_2px_10px_rgba(0,0,0,0.1)] p-3.5 border border-white/10 w-[60px] h-[60px] ${icon.className}`}
+//                 >
+//                     <Image src={icon.src} alt={`icon-${i}`} width={28} height={28} />
+//                 </motion.div>
+//             );
+//         })}
+
+//         {/* Naya component jo fade in hoga */}
+//         <motion.div
+//           style={{ opacity: newComponentOpacity, y: newComponentY }}
+//           className="absolute inset-0 z-30"
+//         >
+//           <PlatformSection />
+//         </motion.div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HeroSection;
+
+
+// "use client";
+
+// import React, { useRef } from "react";
+// import Image from "next/image";
+// import { motion, useScroll, useTransform } from "framer-motion";
+// import { TypeAnimation } from "react-type-animation";
+// import PlatformSection from "./PlatformSection";
+// import Icon from "./Icon"; // Naya Icon component import kiya
+
+// // icons import
+// import checkoutIcon from "../../public/asset/Images/icons/checkout.png";
+// import searchIcon from "../../public/asset/Images/icons/search.png";
+// import uploadIcon from "../../public/asset/Images/icons/upload.png";
+// import categoryIcon from "../../public/asset/Images/icons/category.png";
+// import supportIcon from "../../public/asset/Images/icons/support.png";
+// import starIcon from "../../public/asset/Images/icons/star.png";
+// import favoritesIcon from "../../public/asset/Images/icons/favorites.png";
+// import downloadIcon from "../../public/asset/Images/icons/downlode.png";
+// import communityIcon from "../../public/asset/Images/icons/community.png";
+// import priceTagIcon from "../../public/asset/Images/icons/priceTag.png";
+// import threeDIcon from "../../public/asset/Images/icons/3d.png";
+
+// const icons = [
+//   { src: threeDIcon, className: "top-14 left-[15%]", x: 0.8, y: 1.1, range: [0, 0.2] },
+//   { src: checkoutIcon, className: "top-[15%] right-[15%]", x: -0.8, y: 1.1, range: [0, 0.2] },
+//   { src: priceTagIcon, className: "top-[25%] left-[24%]", x: 0.6, y: 0.8, range: [0.05, 0.25] },
+//   { src: communityIcon, className: "top-[36%] left-[13%]", x: 0.8, y: 0.6, range: [0.1, 0.3] },
+//   { src: searchIcon, className: "top-[35%] right-[22%]", x: -0.6, y: 0.7, range: [0.1, 0.3] },
+//   { src: uploadIcon, className: "top-[50%] right-[10%]", x: -0.9, y: 0.4, range: [0.15, 0.35] },
+//   { src: downloadIcon, className: "top-[52%] left-[26%]", x: 0.5, y: 0.4, range: [0.15, 0.35] },
+//   { src: favoritesIcon, className: "bottom-[25%] left-[14%]", x: 0.8, y: -0.1, range: [0.2, 0.4] },
+//   { src: categoryIcon, className: "bottom-[22%] right-[24%]", x: -0.5, y: -0.2, range: [0.2, 0.4] },
+//   { src: starIcon, className: "bottom-[12%] left-[30%]", x: 0.4, y: -0.4, range: [0.25, 0.45] },
+//   { src: supportIcon, className: "bottom-[12%] left-[45%]", x: 0.1, y: -0.5, range: [0.25, 0.45] },
+// ];
+
+// const HeroSection: React.FC = () => {
+//   const targetRef = useRef<HTMLDivElement>(null);
+//   const { scrollYProgress } = useScroll({
+//     target: targetRef,
+//     offset: ["start start", "end end"],
+//   });
+
+//   const headingOpacity = useTransform(scrollYProgress, [0.35, 0.5], [1, 0]);
+//   const headingY = useTransform(scrollYProgress, [0.35, 0.5], ["0%", "-50%"]);
+
+//   const subheadingOpacity = useTransform(scrollYProgress, [0.4, 0.55], [1, 0]);
+//   const subheadingY = useTransform(scrollYProgress, [0.4, 0.55], ["0%", "-50%"]);
+
+//   const buttonOpacity = useTransform(scrollYProgress, [0.45, 0.6], [1, 0]);
+//   const buttonY = useTransform(scrollYProgress, [0.45, 0.6], ["0%", "-50%"]);
+
+//   const newComponentOpacity = useTransform(scrollYProgress, [0.65, 0.8], [0, 1]);
+//   const newComponentY = useTransform(scrollYProgress, [0.65, 0.8], ["50%", "0%"]);
+
+//   return (
+//     <div ref={targetRef} className="relative h-[350vh] w-full bg-black">
+//       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden text-white">
+//         {/* background blobs */}
+//         <div className="absolute left-[10%] h-[300px] w-[300px] bg-red-500/50 rounded-full blur-[150px] z-0"></div>
+//         <div className="absolute right-[50%] top-1/2 h-[300px] w-[300px] bg-cyan-300/30 rounded-full blur-[100px] z-0"></div>
+
+//         {/* center content */}
+//         <div className="relative z-20 text-center flex flex-col items-center">
+//           <motion.h1 
+//             style={{ opacity: headingOpacity, y: headingY }}
+//             className="text-4xl md:text-6xl font-bold mb-4 h-[160px] md:h-[192px]"
+//           >
+//             <TypeAnimation
+//               sequence={[
+//                 'Discover, Buy, and Sell\nDigital Products',
+//                 2000,
+//                 'Explore a Universe of\nCreative Assets',
+//                 2000,
+//                 'Unleash Your Imagination\nwith 3D Models',
+//                 2000,
+//                 'Join a Community of\nDigital Creators',
+//                 2000,
+//               ]}
+//               wrapper="span"
+//               speed={50}
+//               repeat={Infinity}
+//               cursor={true}
+//               style={{ whiteSpace: 'pre-line', display: 'inline-block' }}
+//             />
+//           </motion.h1>
+//           <motion.p 
+//             style={{ opacity: subheadingOpacity, y: subheadingY }}
+//             className="text-neutral-400 mb-9"
+//           >
+//             Your one-stop digital platform for 3D models and digital creations. <br />
+//             Join our community of creators and collectors today.
+//           </motion.p>
+//           <motion.button 
+//             style={{ opacity: buttonOpacity, y: buttonY }}
+//             className="relative z-20 inline-flex items-center justify-center rounded-full font-medium transition-colors whitespace-nowrap overflow-hidden border border-neutral-700 text-neutral-300 hover:bg-neutral-800 w-[156px] sm:w-[15rem] py-[0.514rem] px-[0.9375rem] sm:py-3.5 sm:px-6 shiny-btn"
+//           >
+//             Explore all products
+//           </motion.button>
+//         </div>
+
+//         {/* scattered icons */}
+//         {icons.map((icon, i) => (
+//           <Icon key={i} scrollYProgress={scrollYProgress} iconData={icon} />
+//         ))}
+
+//         {/* Naya component jo fade in hoga */}
+//         <motion.div
+//           style={{ opacity: newComponentOpacity, y: newComponentY }}
+//           className="absolute inset-0 z-30"
+//         >
+//           <PlatformSection />
+//         </motion.div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HeroSection;
+
+
 "use client";
 
 import React, { useRef } from "react";
@@ -586,6 +841,8 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import PlatformSection from "./PlatformSection";
+import Icon from "./Icon"; 
+import ShinyButton from "../ShinyButton"; // Naya button component import kiya
 
 // icons import
 import checkoutIcon from "../../public/asset/Images/icons/checkout.png";
@@ -671,32 +928,17 @@ const HeroSection: React.FC = () => {
             Your one-stop digital platform for 3D models and digital creations. <br />
             Join our community of creators and collectors today.
           </motion.p>
-          {/* --- BUTTON UPDATED HERE --- */}
-          <motion.button 
-            style={{ opacity: buttonOpacity, y: buttonY }}
-            className="relative z-20 inline-flex items-center justify-center rounded-full font-medium transition-colors whitespace-nowrap overflow-hidden border border-neutral-700 text-neutral-300 hover:bg-neutral-800 w-[156px] sm:w-[15rem] py-[0.514rem] px-[0.9375rem] sm:py-3.5 sm:px-6 shiny-btn"
-          >
-            Explore all products
-          </motion.button>
+          
+          <ShinyButton 
+            title="Explore all products" 
+            motionProps={{ style: { opacity: buttonOpacity, y: buttonY } }} 
+          />
         </div>
 
         {/* scattered icons */}
-        {icons.map((icon, i) => {
-            const opacity = useTransform(scrollYProgress, icon.range, [1, 0]);
-            const scale = useTransform(scrollYProgress, icon.range, [1, 0.2]);
-            const x = useTransform(scrollYProgress, icon.range, ["0vw", `${icon.x * 40}vw`]);
-            const y = useTransform(scrollYProgress, icon.range, ["0vh", `${icon.y * 40}vh`]);
-
-            return (
-                <motion.div
-                    key={i}
-                    style={{ opacity, scale, x, y }}
-                    className={`absolute z-10 flex items-center justify-center rounded-full backdrop-blur-lg bg-white/10 shadow-[0px_2px_10px_rgba(0,0,0,0.1)] p-3.5 border border-white/10 w-[60px] h-[60px] ${icon.className}`}
-                >
-                    <Image src={icon.src} alt={`icon-${i}`} width={28} height={28} />
-                </motion.div>
-            );
-        })}
+        {icons.map((icon, i) => (
+          <Icon key={i} scrollYProgress={scrollYProgress} iconData={icon} />
+        ))}
 
         {/* Naya component jo fade in hoga */}
         <motion.div
