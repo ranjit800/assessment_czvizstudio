@@ -127,7 +127,7 @@ const HeroSection: React.FC = () => {
   const supportOpacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1]);
 
   return (
-    <div ref={targetRef} className="relative h-[350vh] w-full">
+    <div ref={targetRef} className="relative h-[350vh] w-full container mx-auto">
       <div className="fixed top-0 left-0 h-screen w-full -z-10">
         <div className="absolute md:top-[35%] top-[30%] md:left-[10%] left-[10%] h-[270px] w-[270px] bg-red-500/40 rounded-full blur-[150px]"></div>
         <div className="absolute md:top-2/3  top-[60%]  md:right-[50%] right-0  h-[260px] w-[260px] bg-teal-300/30 rounded-full blur-[100px]"></div>
